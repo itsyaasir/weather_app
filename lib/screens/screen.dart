@@ -3,7 +3,6 @@ import 'package:weather_ui/components/constants.dart';
 import 'package:weather_ui/components/Reusables.dart';
 import 'package:weather_ui/services/location.dart';
 import 'package:darksky_weather/darksky_weather_io.dart';
-import 'package:weather_ui/services/weather.dart';
 
 class WeatherUI extends StatelessWidget {
   @override
@@ -34,7 +33,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     Location location = Location();
     await location.getCurrentPosition();
     var darksky = DarkSkyWeather(
-      "43b5a247bcdcfa5540e665acd3229485",
+      "API_KEY",
       units: Units.SI,
       language: Language.English,
     );
