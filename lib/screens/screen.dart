@@ -36,7 +36,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     await location.getCurrentPosition();
     var darksky = DarkSkyWeather(
       // TODO: USE YOUR OWN API_KEY FROM DARKSKY WEATHER API
-      "0f26f34a9b87cd843c684dfe3cc209a8",
+      "API_KEY",
       units: Units.SI,
       language: Language.English,
     );
