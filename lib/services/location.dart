@@ -24,7 +24,6 @@ class Location {
           await Geocoder.local.findAddressesFromCoordinates(coordinates);
       Address first = addresses.first;
       cityName = first.locality;
-      print("${first.locality}");
     } catch (e) {
       print(e);
     }

@@ -20,22 +20,23 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
-  Location location = Location();
   int tempCurrent;
-  int tempSun;
-  int tempMon;
-  int tempTue;
-  int tempWed;
-  int tempThur;
-  int tempFri;
-  int tempSat;
-
+  int tempTomorrow;
+  int tempMinSun, tempMaxSun;
+  int tempMinMon, tempMaxMon;
+  int tempMinTue, tempMaxTue;
+  int tempMinWed, tempMaxWed;
+  int tempMinThur, tempMaxThur;
+  int tempMinFri, tempMaxFri;
+  int tempMinSat, tempMaxSat;
+  String summary;
+  Location location = Location();
   Future<Null> getWeather() async {
     Location location = Location();
     await location.getCurrentPosition();
     var darksky = DarkSkyWeather(
       // TODO: USE YOUR OWN API_KEY FROM DARKSKY WEATHER API
-      "API_KEY",
+      "0f26f34a9b87cd843c684dfe3cc209a8",
       units: Units.SI,
       language: Language.English,
     );
@@ -48,13 +49,22 @@ class _WeatherScreenState extends State<WeatherScreen> {
     ]);
     setState(() {
       tempCurrent = forecast.currently.temperature.toInt();
-      tempSun = forecast.daily.data[1].temperatureMax.toInt();
-      tempMon = forecast.daily.data[2].temperatureMax.toInt();
-      tempTue = forecast.daily.data[3].temperatureMax.toInt();
-      tempWed = forecast.daily.data[4].temperatureMax.toInt();
-      tempThur = forecast.daily.data[5].temperatureMax.toInt();
-      tempFri = forecast.daily.data[6].temperatureMax.toInt();
-      tempSat = forecast.daily.data[7].temperatureMax.toInt();
+      tempTomorrow = forecast.daily.data[1].temperatureMax.toInt();
+      tempMaxSun = forecast.daily.data[1].temperatureMax.toInt();
+      tempMinSun = forecast.daily.data[1].temperatureMin.toInt();
+      tempMaxMon = forecast.daily.data[2].temperatureMax.toInt();
+      tempMinMon = forecast.daily.data[2].temperatureMin.toInt();
+      tempMaxTue = forecast.daily.data[3].temperatureMax.toInt();
+      tempMinTue = forecast.daily.data[3].temperatureMin.toInt();
+      tempMaxWed = forecast.daily.data[4].temperatureMax.toInt();
+      tempMinWed = forecast.daily.data[4].temperatureMin.toInt();
+      tempMaxThur = forecast.daily.data[5].temperatureMax.toInt();
+      tempMinThur = forecast.daily.data[5].temperatureMin.toInt();
+      tempMaxFri = forecast.daily.data[6].temperatureMin.toInt();
+      tempMinFri = forecast.daily.data[6].temperatureMin.toInt();
+      tempMaxSat = forecast.daily.data[7].temperatureMax.toInt();
+      tempMinSat = forecast.daily.data[7].temperatureMin.toInt();
+      summary = forecast.daily.data[0].summary;
     });
   }
 
@@ -68,7 +78,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(60.0),
+      margin: EdgeInsets.all(30.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -76,32 +86,35 @@ class _WeatherScreenState extends State<WeatherScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                ListTile(
-                  title: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.location_on,
-                          color: kMyColor,
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Text(
-                          '${location.cityName}',
-                          style: TextStyle(
-                            fontSize: 30.0,
+                Padding(
+                  padding: const EdgeInsets.only(top: 40.0),
+                  child: ListTile(
+                    title: Center(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Icon(
+                            Icons.location_on,
                             color: kMyColor,
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            width: 10.0,
+                          ),
+                          Text(
+                            '${location.cityName}',
+                            style: TextStyle(
+                              fontSize: 30.0,
+                              color: kMyColor,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  subtitle: Center(
-                    child: Text(
-                      'Today',
-                      style: kTextDayStyle,
+                    subtitle: Center(
+                      child: Text(
+                        'Today',
+                        style: kTextDayStyle,
+                      ),
                     ),
                   ),
                 ),
@@ -127,7 +140,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   ),
                 ),
                 Text(
-                  'Summary',
+                  '$summary',
                   style: TextStyle(color: kMyColor, fontSize: 20.0),
                 )
               ],
@@ -159,7 +172,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         width: 15.0,
                       ),
                       Text(
-                        '$tempSun°',
+                        '$tempTomorrow°',
                         style: TextStyle(
                           fontSize: 30.0,
                           color: kMyColor,
@@ -177,32 +190,39 @@ class _WeatherScreenState extends State<WeatherScreen> {
           Row(
             children: <Widget>[
               ReusableExpandedDays(
-                textDegrees: '$tempSun',
+                textMaxDegrees: '$tempMaxSun',
+                textMinDegrees: '$tempMinSun',
                 textDay: 'S',
               ),
               ReusableExpandedDays(
                 textDay: 'M',
-                textDegrees: '$tempMon',
+                textMaxDegrees: '$tempMaxMon',
+                textMinDegrees: '$tempMinMon',
               ),
               ReusableExpandedDays(
                 textDay: 'T',
-                textDegrees: '$tempTue',
+                textMaxDegrees: '$tempMaxTue',
+                textMinDegrees: '$tempMinTue',
               ),
               ReusableExpandedDays(
                 textDay: 'W',
-                textDegrees: '$tempWed',
+                textMaxDegrees: '$tempMaxWed',
+                textMinDegrees: '$tempMinWed',
               ),
               ReusableExpandedDays(
                 textDay: 'T',
-                textDegrees: '$tempThur',
+                textMaxDegrees: '$tempMaxThur',
+                textMinDegrees: '$tempMinThur',
               ),
               ReusableExpandedDays(
                 textDay: 'F',
-                textDegrees: '$tempFri',
+                textMaxDegrees: '$tempMaxFri',
+                textMinDegrees: '$tempMinFri',
               ),
               ReusableExpandedDays(
                 textDay: 'S',
-                textDegrees: '$tempSat',
+                textMaxDegrees: '$tempMaxSat',
+                textMinDegrees: '$tempMinSat',
               ),
             ],
           ),
