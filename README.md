@@ -2,7 +2,7 @@
 
 A New weather flutter app .
 Screenshots :
-![Screenshot of the App](screenshot1.jpg?raw=true "ScreenShot")
+![Screenshot of the App](screenshot1.jpg?raw=true "ScreenShot", width="350")
 I managed to build my first Flutter App and the UI inspiration is from Dribble by awesome artist [Pavel] (https://dribbble.com/shots/4198066-Dailyui-Weather-App)
 As I am a beginner , I know I did not use good codes , did not refactor well but am in the process of learning .
 
