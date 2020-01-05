@@ -20,6 +20,7 @@ class WeatherScreen extends StatefulWidget {
 }
 
 class _WeatherScreenState extends State<WeatherScreen> {
+  Location location = Location();
   int tempCurrent;
   int tempSun;
   int tempMon;
@@ -33,6 +34,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     Location location = Location();
     await location.getCurrentPosition();
     var darksky = DarkSkyWeather(
+      // TODO: USE YOUR OWN API_KEY FROM DARKSKY WEATHER API
       "API_KEY",
       units: Units.SI,
       language: Language.English,
@@ -60,6 +62,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   void initState() {
     super.initState();
     getWeather();
+    location.getCityName();
   }
 
   @override
@@ -86,7 +89,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                           width: 10.0,
                         ),
                         Text(
-                          'Mombasa',
+                          '${location.cityName}',
                           style: TextStyle(
                             fontSize: 30.0,
                             color: kMyColor,
@@ -124,7 +127,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   ),
                 ),
                 Text(
-                  's',
+                  'Summary',
                   style: TextStyle(color: kMyColor, fontSize: 20.0),
                 )
               ],
