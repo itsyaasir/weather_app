@@ -5,6 +5,7 @@ Screenshots :
 <img src="screenshot1.jpg" width="720p" height="1080p" />
 I managed to build my first Flutter App and the UI inspiration is from Dribble by awesome artist [Pavel] (https://dribbble.com/shots/4198066-Dailyui-Weather-App)
 As I am a beginner , I know I did not use good codes , did not refactor well but am in the process of learning .
+Icon by  : <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 
 If you can contribute in any way please Do So , I'm adding more and more functionality to the App.
 
