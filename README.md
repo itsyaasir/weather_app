@@ -10,14 +10,13 @@ If you can contribute in any way please Do So , I'm adding more and more functio
 
 - [✔] : Managed to detect Cities Automatically according to the co-ordinates.
 - [✔] : Successfully implemented DarkSky Weather API.
+- [✔] : Added Summary , Min and Max Temperature.
 
 
 ### Todos
+-For now the icon is static , I'm working on changing the icons according to the changes in the weather .
 
-   -For now the icon is static , I'm working on changing the icons according to the changes in the weather .
-    -Adding Summary of the Weather Condition .
-    -Right Now , I could not figure a way to get current Temperature for the weekdays , hence am making new UI changer for tempMax and tempMin.
-    -Add more and more Functionality to test my skills and improve it.
+-Add more and more Functionality to test my skills and improve it.
 
 ## Getting Started
 

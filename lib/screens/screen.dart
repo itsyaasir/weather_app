@@ -36,7 +36,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
     await location.getCurrentPosition();
     var darksky = DarkSkyWeather(
       // TODO: USE YOUR OWN API_KEY FROM DARKSKY WEATHER API
-      "0f26f34a9b87cd843c684dfe3cc209a8",
+      "API_KEY",
       units: Units.SI,
       language: Language.English,
     );
@@ -78,7 +78,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(30.0),
+      margin: EdgeInsets.all(13.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
