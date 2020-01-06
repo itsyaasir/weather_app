@@ -3,11 +3,10 @@
 A New weather flutter app .
 Screenshots :
 <img src="screenshot1.jpg" width="720p" height="1080p" />
-I managed to build my first Flutter App and the UI inspiration is from Dribble by awesome artist [Pavel] ()
-Design UI by  : <div>Design made by <a href="https://dribbble.com/shots/4198066-Dailyui-Weather-App" title="Dribble">iconixar</a> from <a href="https://www.dribbble.com/" title="Dribbble">www.dribbble.com</a></div>
-As I am a beginner , I know I did not use good codes , did not refactor well but am in the process of learning .
+I managed to build my first Flutter App .
+Design UI by  : <div>Design made by <a href="https://dribbble.com/shots/4198066-Dailyui-Weather-App" title="Dribble">Pavel</a> from <a href="https://www.dribbble.com/" title="Dribbble">www.dribbble.com</a></div>
 Icon by  : <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-
+As I am a beginner , I know I did not use good codes , did not refactor well but am in the process of learning ,
 If you can contribute in any way please Do So , I'm adding more and more functionality to the App.
 
 - [✔] : Managed to detect Cities Automatically according to the co-ordinates.
